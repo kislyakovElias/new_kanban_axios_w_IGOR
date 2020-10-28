@@ -1,45 +1,31 @@
-import React, {useEffect, useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import Controller from "./Controller";
-import { Modal, Button, ModalBody, ModalFooter, ModalHeader,
-    Label, Input , } from 'reactstrap';
+import React, { useState } from 'react';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 
 function Menu(props) {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-    const [enable, setEnable] = useState(false);
-    const toggle = () => {setEnable(!enable) }
-
-
+    const toggle = () => setDropdownOpen(!dropdownOpen);
+    // prevState => !prevState
     return (
-        <div>
-            <div className="dropdown">
-                <button onClick={toggle} className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Menu
-                    {/*<span class="caret"></span>*/}
-                </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-        </div>
+        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <DropdownToggle caret>
+                Menu
+            </DropdownToggle>
+            <DropdownMenu>
+                <DropdownItem header>Actions</DropdownItem>
+                <DropdownItem onClick={props.addCardToggle}>Add Card</DropdownItem>
+                <DropdownItem disabled>Action (disabled)</DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem onClick={props.addCardToggle}>1 Action</DropdownItem>
+                <DropdownItem>2 Action</DropdownItem>
+                <DropdownItem>3 Action</DropdownItem>
+            </DropdownMenu>
+        </Dropdown>
     );
-};
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 

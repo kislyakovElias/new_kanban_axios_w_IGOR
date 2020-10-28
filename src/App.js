@@ -93,11 +93,17 @@ function App() {
             .catch(err => console.log(err))
     }
 
+    const [addCard, setAddCard] = useState(false);
+
+  const addCardToggle = () => {
+  setAddCard(!addCard)
+  }
+
 
   return (
       <div className='container'>
-          <Controller createCard={createCard}/>
-          <Menu/>
+          <Controller addCard={addCard} setAddCard={setAddCard} createCard={createCard}/>
+          <Menu addCardToggle={addCardToggle}/>
         <div className='row'>
 
       {statuses.map(el => <Column cards={cards}
