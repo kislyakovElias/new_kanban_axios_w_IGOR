@@ -20,8 +20,8 @@ function Menu(props) {
                 <DropdownItem disabled>Action (disabled)</DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem onClick={props.addCardToggle}>1 Action</DropdownItem>
-                <DropdownItem>2 Action</DropdownItem>
-                <DropdownItem>3 Action</DropdownItem>
+                {/*<DropdownItem>2 Action</DropdownItem>*/}
+                {/*<DropdownItem>3 Action</DropdownItem>*/}
             </DropdownMenu>
         </Dropdown>
     );
